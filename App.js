@@ -1,19 +1,29 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { View } from 'react-native';
+import * as Facebook from 'expo-facebook';
+// import { Container } from './styles';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
+  useEffect(() => {
+    async function logIn() {
+      try {
+        await Facebook.initializeAsync('2765038933518909');
+        const login = await Facebook.logInWithReadPermissionsAsync({
+          permissions: ['public_profile'],
+        });
+        if (login.type === 'success') {
+          const response = await fetch(
+            `https://graph.facebook.com/me?access_token=${login.token}`
+          );
+          console.log(await response.json());
+        }
+      } catch (err) {
+        console.log(err.message);
+      }
+    }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    logIn();
+  }, []);
+
+  return <View />;
+}
