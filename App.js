@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { View } from 'react-native';
 import * as Facebook from 'expo-facebook';
 import * as Google from 'expo-google-app-auth';
@@ -6,7 +6,6 @@ import axios from 'axios';
 // import { Container } from './styles';
 
 export default function App() {
-  const [url, setUrl] = useState('');
   useEffect(() => {
     async function logInFacebook() {
       try {
@@ -16,10 +15,18 @@ export default function App() {
         });
 
         if (login.type === 'success') {
-          const response = await axios.get(
+          const user = await axios.get(
             `https://graph.facebook.com/me?fields=id,name,email,birthday,picture.height(150).width(150)&access_token=${login.token}`
           );
-          setUrl(response.data.picture.data.url);
+
+          const { name, id, picture, email } = user.data;
+          const response = await axios.post('http://10.21.14.78:3000/auth', {
+            fullname: name,
+            facebook_id: id,
+            photo_url: picture.data.url,
+            email,
+          });
+          console.log(response.data);
         }
       } catch (err) {
         console.log(err.message);
@@ -37,15 +44,21 @@ export default function App() {
 
         if (result.type === 'success') {
           console.log(result);
+          const { email, name, photoUrl, id } = result.user;
+          const response = await axios.post('http://10.21.14.78:3000/auth', {
+            fullname: name,
+            google_id: id,
+            photo_url: photoUrl,
+            email,
+          });
+          console.log(response.data);
         }
-
-        return { cancelled: true };
-      } catch (e) {
-        return { error: true };
+      } catch (error) {
+        return console.log(error.message);
       }
     }
     // logInFacebook();
-    // logInGoogle();
+    logInGoogle();
   }, []);
 
   return <View />;
