@@ -20,7 +20,7 @@ export default function App() {
           );
 
           const { name, id, picture, email } = user.data;
-          const response = await axios.post('http://10.21.14.78:3000/auth', {
+          const response = await axios.post('http://10.21.23.123:3000/auth', {
             fullname: name,
             facebook_id: id,
             photo_url: picture.data.url,
@@ -45,7 +45,7 @@ export default function App() {
         if (result.type === 'success') {
           console.log(result);
           const { email, name, photoUrl, id } = result.user;
-          const response = await axios.post('http://10.21.14.78:3000/auth', {
+          const response = await axios.post('http://10.21.23.123:3000/auth', {
             fullname: name,
             google_id: id,
             photo_url: photoUrl,
@@ -57,8 +57,8 @@ export default function App() {
         return console.log(error.message);
       }
     }
-    // logInFacebook();
-    logInGoogle();
+    logInFacebook();
+    // logInGoogle();
   }, []);
 
   return <View />;
