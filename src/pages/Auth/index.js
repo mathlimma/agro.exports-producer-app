@@ -1,12 +1,18 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Container } from './styles';
+import * as AuthActions from '../../store/modules/auth/actions';
 
-// import { Container } from './styles';
+export default function App() {
+  const dispatch = useDispatch();
 
-export default function Auth() {
-  return (
-    <View>
-      <Text>auth</Text>
-    </View>
-  );
+  useEffect(() => {
+    function signInFacebook() {
+      dispatch(AuthActions.signInFacebookRequest());
+    }
+
+    signInFacebook();
+  });
+
+  return <Container />;
 }
