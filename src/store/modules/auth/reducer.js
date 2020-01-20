@@ -4,23 +4,39 @@ import {
   SIGN_IN_FACEBOOK_FAILURE,
   SIGN_IN_FACEBOOK_REQUEST,
   SIGN_IN_FACEBOOK_SUCCESS,
+  SIGN_IN_GOOGLE_FAILURE,
+  SIGN_IN_GOOGLE_REQUEST,
+  SIGN_IN_GOOGLE_SUCCESS,
 } from '../types';
 
 const INITIAL_STATE = {
-  user: null,
+  signed: false,
+  token: null,
 };
 
 export default function AuthReducer(state = INITIAL_STATE, action) {
   return produce(state, draft => {
     switch (action.type) {
-      case action.type === SIGN_IN_FACEBOOK_REQUEST: {
+      case SIGN_IN_FACEBOOK_REQUEST: {
         break;
       }
-      case action.type === SIGN_IN_FACEBOOK_SUCCESS: {
-        draft.user = action.payload.user;
+      case SIGN_IN_FACEBOOK_SUCCESS: {
+        draft.signed = true;
+        draft.token = action.payload.token;
         break;
       }
-      case action.type === SIGN_IN_FACEBOOK_FAILURE: {
+      case SIGN_IN_FACEBOOK_FAILURE: {
+        break;
+      }
+      case SIGN_IN_GOOGLE_REQUEST: {
+        break;
+      }
+      case SIGN_IN_GOOGLE_SUCCESS: {
+        draft.signed = true;
+        draft.token = action.payload.token;
+        break;
+      }
+      case SIGN_IN_GOOGLE_FAILURE: {
         break;
       }
       default:

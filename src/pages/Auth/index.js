@@ -11,7 +11,11 @@ export default function App() {
       dispatch(AuthActions.signInFacebookRequest());
     }
 
-    signInFacebook();
+    function signInGoogle() {
+      dispatch(AuthActions.signInGoogleRequest());
+    }
+    signInGoogle();
+    // signInFacebook();
   });
 
   return <Container />;
