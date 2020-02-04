@@ -33,7 +33,7 @@ export const Input = styled.TextInput.attrs({
   width: 290px;
 `;
 
-export const LoginButton = styled.View`
+export const LoginButton = styled.TouchableOpacity`
   margin-top: 50px;
   background: #01a643;
   justify-content: center;

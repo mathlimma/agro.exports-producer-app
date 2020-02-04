@@ -9,7 +9,11 @@ import {
   AuthViewText,
 } from './styles';
 
-export default function Auth() {
+export default function Auth({ navigation }) {
+  function handleNavigationLogin() {
+    navigation.navigate('Login');
+  }
+
   return (
     <Container tintcolor="#005D22">
       <LogoView>
@@ -17,7 +21,7 @@ export default function Auth() {
       </LogoView>
 
       <AuthView>
-        <AuthButton>
+        <AuthButton onPress={handleNavigationLogin}>
           <AuthButtonText>Login</AuthButtonText>
         </AuthButton>
 
