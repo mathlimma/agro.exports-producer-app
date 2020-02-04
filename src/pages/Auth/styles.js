@@ -8,7 +8,8 @@ export const Container = styled.ImageBackground.attrs({
   flex: 1;
   justify-content: center;
   align-items: center;
-  opacity: 0.8;
+  opacity: 0.7;
+  color: ${props => props.tintcolor};
 `;
 
 export const LogoView = styled.View`
@@ -23,16 +24,26 @@ export const LogoImage = styled.Image.attrs({
 
 export const AuthView = styled.View`
   flex: 1;
-  background: red;
+  color: #ffffff;
+  align-items: center;
 `;
 
 export const AuthButton = styled.TouchableOpacity`
-  flex: 1;
   justify-content: center;
   align-items: center;
-  background: #fff;
+  background-color: white;
+  width: 288px;
+  height: 54px;
+  border-radius: 5px;
 `;
 
-export const AuthButtonText = styled.Text``;
+export const AuthButtonText = styled.Text`
+  font-size: 20px;
+  color: #005d22;
+`;
 
-export const AuthViewText = styled.Text``;
+export const AuthViewText = styled.Text`
+  padding: 20px;
+  color: #161616;
+  font-weight: bold;
+`;

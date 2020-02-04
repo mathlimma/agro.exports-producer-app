@@ -11,7 +11,7 @@ import {
 
 export default function Auth() {
   return (
-    <Container>
+    <Container tintcolor="#005D22">
       <LogoView>
         <LogoImage />
       </LogoView>
@@ -21,7 +21,7 @@ export default function Auth() {
           <AuthButtonText>Login</AuthButtonText>
         </AuthButton>
 
-        <AuthViewText>---- Não possui conta? ----</AuthViewText>
+        <AuthViewText>Ainda não possui conta?</AuthViewText>
 
         <AuthButton>
           <AuthButtonText>Cadastre-se</AuthButtonText>
