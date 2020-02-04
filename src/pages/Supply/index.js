@@ -1,39 +1,44 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-// import { Feather } from '@expo/vector-icons';
-// import AppBar from '../../components/AppBar';
-// import SupplyItem from '../../components/SupplyItem';
+import AppBar from '../../components/AppBar';
+import SupplyItem from '../../components/SupplyItem';
 
-// import {
-//   Container,
-//   Content,
-//   CreateSupplyButton,
-//   CreateSupplyText,
-//   SupplyList,
-//   SupplyText,
-// } from './styles';
+import {
+  Container,
+  Content,
+  CreateSupplyButton,
+  CreateSupplyText,
+  SupplyList,
+  SupplyText,
+  Separator,
+  ButtonView,
+  Icon,
+} from './styles';
 
-export default function Login() {
+const produto = {
+  nome: 'abacate',
+  foto: 'foto.com',
+  active: 'true',
+};
+
+export default function Supply() {
   return (
-    // <Container>
-    //   <AppBar title="Faça o login" />
-    //   <CreateSupplyButton>
-    //     <CreateSupplyText>Adicionar Oferta</CreateSupplyText>
-    //   </CreateSupplyButton>
-    //   <Content>
-    //     <SupplyText>Suas Ofertas</SupplyText>
-    //     <SupplyList
-    //       data={data}
-    //       renderItem={({ item }) => (
-    //         <SupplyItem onPress={onPress} {...item} key={item.id} />
-    //       )}
-    //       keyExtractor={item => String(item.id)}
-    //       ItemSeparatorComponent={() => <Separator />}
-    //     />
-    //   </Content>
-    // </Container>
-    <View>
-      <Text>supply</Text>
-    </View>
+    <Container>
+      <AppBar title="Oferta" size="22" />
+      <Content>
+        <ButtonView>
+          <CreateSupplyButton>
+            <Icon name="plus" size={25} color="#fff" />
+            <CreateSupplyText>Adicionar Oferta</CreateSupplyText>
+          </CreateSupplyButton>
+        </ButtonView>
+        <SupplyText>Suas Ofertas</SupplyText>
+        <SupplyList
+          data={produto}
+          renderItem={({ item }) => <SupplyItem {...item} key={item.id} />}
+          keyExtractor={item => String(item.id)}
+          ItemSeparatorComponent={() => <Separator />}
+        />
+      </Content>
+    </Container>
   );
 }
