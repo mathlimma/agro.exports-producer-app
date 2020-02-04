@@ -7,7 +7,7 @@ import Login from './pages/Login';
 import Demand from './pages/Demand';
 import Profile from './pages/Profile';
 import Supply from './pages/Supply';
-
+import Register from './pages/Register';
 import saveMoney from './assets/icons/save-money.png';
 import saveMoneyGreen from './assets/icons/money-green.png';
 import sprout from './assets/icons/sprout.png';
@@ -72,10 +72,10 @@ const App = createBottomTabNavigator(
 const Root = createSwitchNavigator(
   {
     Login,
-    // Register,
+    Register,
     App,
   },
-  { initialRouteName: 'Login' }
+  { initialRouteName: 'Register' }
 );
 
 const Routes = createAppContainer(Root);

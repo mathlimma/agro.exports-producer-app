@@ -1,22 +1,23 @@
 import styled from 'styled-components/native';
-import { Feather } from '@expo/vector-icons';
-import { KeyboardAvoidingView } from 'react-native';
 
-import logo from '../../assets/images/logo.png';
+import account from '../../assets/icons/account.png';
 
 export const Container = styled.View`
   flex: 1;
 `;
 
-export const Content = styled(KeyboardAvoidingView).attrs({
-  behavior: 'height',
-})`
-  justify-content: center;
+export const Content = styled.View`
+  align-items: center;
+  padding: 40px 0;
+`;
+
+export const PhotoView = styled.TouchableOpacity`
   align-items: center;
 `;
 
-export const Icon = styled(Feather)`
-  margin-right: 5px;
+export const PhotoImage = styled.Image.attrs({ source: account })`
+  width: 110px;
+  height: 110px;
 `;
 
 export const InputWrapper = styled.View`
@@ -46,12 +47,4 @@ export const LoginButton = styled.TouchableOpacity`
 export const LoginButtonText = styled.Text`
   color: #fff;
   font-weight: bold;
-`;
-
-export const Logo = styled.Image.attrs({ source: logo })``;
-
-export const LogoView = styled.View`
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
 `;
