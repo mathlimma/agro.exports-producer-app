@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
-import background from '../../assets/background.png';
-import logo from '../../assets/logo.png';
+import background from '../../assets/images/background.png';
+import logo from '../../assets/images/logo.png';
 
 export const Container = styled.ImageBackground.attrs({
   source: background,
