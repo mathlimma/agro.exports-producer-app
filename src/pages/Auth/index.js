@@ -1,22 +1,32 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { Container } from './styles';
-import * as AuthActions from '../../store/modules/auth/actions';
+import React from 'react';
+import {
+  Container,
+  LogoView,
+  LogoImage,
+  AuthView,
+  AuthButton,
+  AuthButtonText,
+  AuthViewText,
+} from './styles';
 
-export default function App() {
-  const dispatch = useDispatch();
+export default function Auth() {
+  return (
+    <Container>
+      <LogoView>
+        <LogoImage />
+      </LogoView>
 
-  useEffect(() => {
-    function signInFacebook() {
-      dispatch(AuthActions.signInFacebookRequest());
-    }
+      <AuthView>
+        <AuthButton>
+          <AuthButtonText>Login</AuthButtonText>
+        </AuthButton>
 
-    function signInGoogle() {
-      dispatch(AuthActions.signInGoogleRequest());
-    }
-    signInGoogle();
-    // signInFacebook();
-  });
+        <AuthViewText>---- Não possui conta? ----</AuthViewText>
 
-  return <Container />;
+        <AuthButton>
+          <AuthButtonText>Cadastre-se</AuthButtonText>
+        </AuthButton>
+      </AuthView>
+    </Container>
+  );
 }
