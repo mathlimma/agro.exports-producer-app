@@ -9,8 +9,12 @@ import Profile from './pages/Profile';
 import Supply from './pages/Supply';
 
 import saveMoney from './assets/icons/save-money.png';
+import saveMoneyGreen from './assets/icons/money-green.png';
 import sprout from './assets/icons/sprout.png';
-import user from './assets/icons/user.png';
+import sproutGreen from './assets/icons/sprout-green.png';
+
+import farmer from './assets/icons/farmer.png';
+import farmerGreen from './assets/icons/farmer-green.png';
 
 const App = createBottomTabNavigator(
   {
@@ -18,7 +22,10 @@ const App = createBottomTabNavigator(
       screen: Demand,
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
-          <Image source={saveMoney} style={{ width: 25, height: 25 }} />
+          <Image
+            source={focused ? saveMoneyGreen : saveMoney}
+            style={{ width: 35, height: 35 }}
+          />
         ),
       },
     },
@@ -26,7 +33,10 @@ const App = createBottomTabNavigator(
       screen: Profile,
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
-          <Image source={user} style={{ width: 20, height: 20 }} />
+          <Image
+            source={focused ? farmerGreen : farmer}
+            style={{ width: 25, height: 25 }}
+          />
         ),
       },
     },
@@ -34,7 +44,10 @@ const App = createBottomTabNavigator(
       screen: Supply,
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
-          <Image source={sprout} style={{ width: 25, height: 25 }} />
+          <Image
+            source={focused ? sproutGreen : sprout}
+            style={{ width: 33, height: 33 }}
+          />
         ),
       },
     },
@@ -43,12 +56,11 @@ const App = createBottomTabNavigator(
     initialRouteName: 'Demand',
     tabBarOptions: {
       showLabel: false,
-      activeTintColor: '#fff',
-      inactiveTintColor: '#000',
-      // tabStyle: {
-      //   paddingBottom: 5,
-      //   paddingTop: 5,
-      // },
+
+      tabStyle: {
+        paddingBottom: 5,
+        paddingTop: 5,
+      },
       style: {
         backgroundColor: '#fff',
         borderTopWidth: 1,
