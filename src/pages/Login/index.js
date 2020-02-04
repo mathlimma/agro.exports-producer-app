@@ -1,5 +1,5 @@
 import React from 'react';
-import { Feather } from '@expo/vector-icons';
+
 import AppBar from '../../components/AppBar';
 import {
   Container,
@@ -10,6 +10,7 @@ import {
   LoginButtonText,
   InputWrapper,
   LogoView,
+  Icon,
 } from './styles';
 
 export default function Login() {
@@ -21,10 +22,13 @@ export default function Login() {
           <Logo />
         </LogoView>
         <InputWrapper>
-          <Feather name="lock" size={10} color="black" />
+          <Icon name="user" size={15} color="#808080" />
           <Input placeholder="Nome" />
         </InputWrapper>
-        <Input placeholder="Senha" />
+        <InputWrapper>
+          <Icon name="lock" size={15} color="#808080" />
+          <Input placeholder="Senha" />
+        </InputWrapper>
         <LoginButton>
           <LoginButtonText>Entre agora!</LoginButtonText>
         </LoginButton>
