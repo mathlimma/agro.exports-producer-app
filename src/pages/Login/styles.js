@@ -1,7 +1,8 @@
 import styled from 'styled-components/native';
 import { Feather } from '@expo/vector-icons';
 import { KeyboardAvoidingView } from 'react-native';
-import logo from '../../assets/logo.png';
+
+import logo from '../../assets/images/logo.png';
 
 export const Container = styled.View`
   flex: 1;
