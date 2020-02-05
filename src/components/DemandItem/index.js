@@ -10,9 +10,13 @@ import {
   ArrowImage,
 } from './styles';
 
-export default function DemandItem() {
+export default function DemandItem({ navigation }) {
+  function handleNavigation() {
+    navigation.push('DemandDetails');
+  }
+
   return (
-    <Container>
+    <Container onPress={handleNavigation}>
       <ContentView>
         <ContentPhoto
           source={{
