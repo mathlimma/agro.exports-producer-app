@@ -19,7 +19,7 @@ export default function AddSupply({ navigation }) {
   useEffect(() => {
     async function getSupplies() {
       try {
-        const response = await api.get('/producer/supplies');
+        const response = await api.get('/product');
 
         setProducts(response.data);
       } catch (error) {
@@ -37,9 +37,9 @@ export default function AddSupply({ navigation }) {
     console.log(item);
     return (
       <ProductButton onPress={() => handlePress(item)}>
-        <ProductImage source={{ uri: item.product_id.photo_id.url }} />
+        <ProductImage source={{ uri: item.photo_id.url }} />
         <ProductTextView>
-          <ProductText> {item.product_id.name}</ProductText>
+          <ProductText> {item.name}</ProductText>
         </ProductTextView>
       </ProductButton>
     );
