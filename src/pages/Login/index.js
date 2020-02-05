@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Entypo } from '@expo/vector-icons';
-import { useDispatch } from 'react-redux';
+import { AsyncStorage } from 'react-native';
 import AppBar from '../../components/AppBar';
-import * as AuthActison from '../../store/modules/auth/actions';
 import api from '../../services/api';
 import {
   Container,
@@ -19,13 +18,19 @@ import {
 export default function Login({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setpassword] = useState('');
-  const dispatch = useDispatch();
+
   async function handleLogin() {
     if (email && password) {
-      // dispatch(AuthActison.signInRequest(email, password));
-      const response = await api.post('producer/signin', { email, password });
-      console.log(response);
-      navigation.navigate('App');
+      try {
+        const response = await api.post('producer/signin', { email, password });
+        const { producer, token } = response.data;
+
+        api.defaults.headers.Authorization = `Bearer ${token}`;
+        await AsyncStorage.setItem('@token', token);
+        navigation.navigate('App', { producer });
+      } catch (err) {
+        console.log(err);
+      }
     }
   }
 

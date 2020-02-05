@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { AsyncStorage } from 'react-native';
+import api from '../../services/api';
 import {
   Container,
   LogoView,
@@ -10,6 +12,19 @@ import {
 } from './styles';
 
 export default function Auth({ navigation }) {
+  useEffect(() => {
+    async function redirect() {
+      const token = await AsyncStorage.getItem('@token');
+
+      if (token) {
+        api.defaults.headers.Authorization = `Bearer ${token}`;
+      }
+      navigation.navigate('App');
+    }
+
+    redirect();
+  }, []);
+
   function handleNavigationLogin() {
     navigation.navigate('Login');
   }

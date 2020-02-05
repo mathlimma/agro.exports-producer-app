@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import DemandItem from '../../components/DemandItem';
 import { Container, DemandsList, Content } from './styles';
 import AppBar from '../../components/AppBar';
-
-const demands = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+import api from '../../services/api';
 
 export default function Demand({ navigation }) {
+  const [demands, setDemands] = useState([]);
+  useEffect(() => {
+    async function getDemands() {
+      try {
+        const response = await api.get('producer/demands');
+        console.log('ola');
+        setDemands(response.data.demands_id);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    getDemands();
+  }, []);
+
   return (
     <Container>
       <AppBar title="Demandas" />

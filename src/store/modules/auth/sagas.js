@@ -16,7 +16,7 @@ export function* signIn({ payload }) {
     const { producer, token } = response.data;
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
-    AsyncStorage.setItem('@token', token);
+    yield call(AsyncStorage.setItem, '@token', token);
     yield put(AuthActions.signInSuccess(producer, token));
   } catch (error) {
     console.log(error);
