@@ -1,7 +1,5 @@
 import styled from 'styled-components/native';
 
-import account from '../../assets/icons/account.png';
-
 export const Container = styled.View`
   flex: 1;
 `;
@@ -13,7 +11,7 @@ export const Content = styled.View`
   padding: 40px 0;
 `;
 
-export const PhotoView = styled.View`
+export const PhotoView = styled.TouchableOpacity`
   align-items: center;
 `;
 
@@ -27,9 +25,10 @@ export const TextPhoto = styled.Text`
   color: #161616;
 `;
 
-export const PhotoImage = styled.Image.attrs({ source: account })`
+export const PhotoImage = styled.Image`
   width: 85px;
   height: 85px;
+  border-radius: 42.5px;
 `;
 
 export const InputWrapper = styled.View`
