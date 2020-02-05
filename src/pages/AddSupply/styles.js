@@ -7,7 +7,7 @@ export const Container = styled.View`
 `;
 
 export const Content = styled.View`
-  align-items: center;
+  padding: 20px;
 `;
 
 export const ProductButton = styled.TouchableOpacity`
@@ -16,12 +16,6 @@ export const ProductButton = styled.TouchableOpacity`
   align-items: center;
   border-bottom-width: 1px;
   border-bottom-color: #707070;
-`;
-
-export const ProductListView = styled.View`
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
 `;
 
 export const ProductTextView = styled.View`
@@ -35,10 +29,19 @@ export const ProductImage = styled.Image`
   border-radius: 5px;
 `;
 
+export const AddSupplyView = styled.View`
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-bottom-color: #707070;
+  border-bottom-width: 1px;
+`;
+
 export const AddSupplyText = styled.Text`
-  margin-top: 30px;
   font-size: 20px;
   color: #000000;
+  align-self: center;
+  font-weight: bold;
 `;
 
 export const ProductText = styled.Text`
@@ -46,8 +49,4 @@ export const ProductText = styled.Text`
   margin-left: 20px;
 `;
 
-export const ProductList = styled(FlatList).attrs({
-  showVerticalScrollIndicator: false,
-})`
-  padding: 20px;
-`;
+export const ProductList = styled(FlatList)``;

@@ -9,8 +9,8 @@ import {
   CreateSupplyText,
   SupplyList,
   SupplyText,
-  Separator,
   ButtonView,
+  Separator,
   Icon,
 } from './styles';
 

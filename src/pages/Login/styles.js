@@ -8,9 +8,7 @@ export const Container = styled.View`
   flex: 1;
 `;
 
-export const Content = styled(KeyboardAvoidingView).attrs({
-  behavior: 'height',
-})`
+export const Content = styled.View`
   justify-content: center;
   align-items: center;
 `;

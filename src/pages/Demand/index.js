@@ -13,9 +13,8 @@ export default function Demand({ navigation }) {
         <DemandsList
           data={demands}
           renderItem={({ item }) => (
-            <DemandItem {...item} key={item._id} navigation={navigation} />
+            <DemandItem {...item} navigation={navigation} />
           )}
-          keyExtractor={item => String(item._id)}
         />
       </Content>
     </Container>

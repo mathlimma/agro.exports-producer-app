@@ -1,46 +1,29 @@
-import {
-  SIGN_IN_FACEBOOK_FAILURE,
-  SIGN_IN_FACEBOOK_REQUEST,
-  SIGN_IN_FACEBOOK_SUCCESS,
-  SIGN_IN_GOOGLE_FAILURE,
-  SIGN_IN_GOOGLE_REQUEST,
-  SIGN_IN_GOOGLE_SUCCESS,
-} from '../types';
+import { SIGN_IN_REQUEST, SIGN_IN_FAILURE, SIGN_IN_SUCCESS } from '../types';
 
-export function signInFacebookRequest() {
+export function signInRequest(email, password) {
   return {
-    type: SIGN_IN_FACEBOOK_REQUEST,
+    type: SIGN_IN_REQUEST,
+    payload: {
+      email,
+      password,
+    },
   };
 }
 
-export function signInFacebookSuccess(token) {
+export function signInSuccess(producer, token) {
+  console.log('success');
   return {
-    type: SIGN_IN_FACEBOOK_SUCCESS,
-    payload: { token },
+    type: SIGN_IN_SUCCESS,
+    payload: {
+      producer,
+      token,
+    },
   };
 }
 
-export function signInFacebookFailure() {
+export function signInFailure() {
+  console.log('success');
   return {
-    type: SIGN_IN_FACEBOOK_FAILURE,
-  };
-}
-
-export function signInGoogleRequest() {
-  return {
-    type: SIGN_IN_GOOGLE_REQUEST,
-  };
-}
-
-export function signInGoogleSuccess(token) {
-  return {
-    type: SIGN_IN_GOOGLE_SUCCESS,
-    payload: { token },
-  };
-}
-
-export function signInGoogleFailure() {
-  return {
-    type: SIGN_IN_GOOGLE_FAILURE,
+    type: SIGN_IN_FAILURE,
   };
 }
