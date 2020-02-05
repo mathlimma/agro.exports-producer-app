@@ -3,6 +3,7 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { Image } from 'react-native';
 
+import Auth from './pages/Auth';
 import Login from './pages/Login';
 import Demand from './pages/Demand';
 import Profile from './pages/Profile';
@@ -71,11 +72,12 @@ const App = createBottomTabNavigator(
 
 const Root = createSwitchNavigator(
   {
+    Auth,
     Login,
     Register,
     App,
   },
-  { initialRouteName: 'App' }
+  { initialRouteName: 'Auth' }
 );
 
 const Routes = createAppContainer(Root);

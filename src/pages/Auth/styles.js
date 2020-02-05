@@ -8,8 +8,6 @@ export const Container = styled.ImageBackground.attrs({
   flex: 1;
   justify-content: center;
   align-items: center;
-  opacity: 0.7;
-  color: ${props => props.tintcolor};
 `;
 
 export const LogoView = styled.View`
@@ -44,6 +42,6 @@ export const AuthButtonText = styled.Text`
 
 export const AuthViewText = styled.Text`
   padding: 20px;
-  color: #161616;
+  color: white;
   font-weight: bold;
 `;
