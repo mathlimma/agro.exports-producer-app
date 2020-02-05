@@ -1,13 +1,13 @@
 import React from 'react';
 import { Container, ProductNameText, ProductImage, StatusText } from './styles';
 
-export default function SupplyItem({ name, url, active }) {
+export default function SupplyItem({ product_id, active }) {
   return (
     <Container active={active}>
-      <ProductNameText>{name}</ProductNameText>
+      <ProductNameText>{product_id.name}</ProductNameText>
       <ProductImage
         source={{
-          uri: url,
+          uri: product_id.photo_id.url,
         }}
       />
       <StatusText>Ativo</StatusText>
