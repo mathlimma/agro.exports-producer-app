@@ -77,13 +77,13 @@ const product = [
 ];
 
 export default function AddSupply({ navigation }) {
-  function handlePress() {
-    navigation.push('CreateSupply');
+  function handlePress(item) {
+    navigation.push('CreateSupply', { item });
   }
 
   function ProductItem(item) {
     return (
-      <ProductButton onPress={handlePress}>
+      <ProductButton onPress={() => handlePress(item)}>
         <ProductImage source={{ uri: item.url }} />
         <ProductTextView>
           <ProductText> {item.name}</ProductText>

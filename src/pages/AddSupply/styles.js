@@ -26,7 +26,8 @@ export const ProductTextView = styled.View`
 export const ProductImage = styled.Image`
   height: 50px;
   width: 50px;
-  border-radius: 5px;
+  border-radius: 25px;
+  border: 1px solid #707070;
 `;
 
 export const AddSupplyView = styled.View`
