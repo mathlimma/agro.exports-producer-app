@@ -3,10 +3,13 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { Image } from 'react-native';
 
+import { createStackNavigator } from 'react-navigation-stack';
+import Auth from './pages/Auth';
 import Login from './pages/Login';
 import Demand from './pages/Demand';
 import Profile from './pages/Profile';
 import Supply from './pages/Supply';
+import AddSupply from './pages/AddSupply';
 import Register from './pages/Register';
 import saveMoney from './assets/icons/save-money.png';
 import saveMoneyGreen from './assets/icons/money-green.png';
@@ -15,6 +18,18 @@ import sproutGreen from './assets/icons/sprout-green.png';
 
 import farmer from './assets/icons/farmer.png';
 import farmerGreen from './assets/icons/farmer-green.png';
+
+const SupplyStack = createStackNavigator(
+  {
+    Supply: {
+      screen: Supply,
+    },
+    AddSupply: {
+      screen: AddSupply,
+    },
+  },
+  { headerMode: 'none' }
+);
 
 const App = createBottomTabNavigator(
   {
@@ -40,8 +55,8 @@ const App = createBottomTabNavigator(
         ),
       },
     },
-    Supply: {
-      screen: Supply,
+    SupplyStack: {
+      screen: SupplyStack,
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <Image
@@ -71,11 +86,12 @@ const App = createBottomTabNavigator(
 
 const Root = createSwitchNavigator(
   {
+    Auth,
     Login,
     Register,
     App,
   },
-  { initialRouteName: 'App' }
+  { initialRouteName: 'Auth' }
 );
 
 const Routes = createAppContainer(Root);

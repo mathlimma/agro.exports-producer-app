@@ -1,6 +1,7 @@
 import React from 'react';
 import AppBar from '../../components/AppBar';
 import SupplyItem from '../../components/SupplyItem';
+import AddSupply from '../AddSupply';
 
 import {
   Container,
@@ -47,13 +48,13 @@ const product = [
   },
 ];
 
-export default function Supply() {
+export default function Supply({ navigation }) {
   return (
     <Container>
       <AppBar title="Oferta" size="22" />
       <Content>
         <ButtonView>
-          <CreateSupplyButton>
+          <CreateSupplyButton onpress={() => navigation.push('AddSupply')}>
             <Icon name="plus" size={25} color="#fff" />
             <CreateSupplyText>Adicionar Oferta</CreateSupplyText>
           </CreateSupplyButton>

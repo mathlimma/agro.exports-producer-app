@@ -34,7 +34,7 @@ export default function Login({ navigation }) {
           <Input placeholder="Senha" />
         </InputWrapper>
         <LoginButton onPress={handleLogin}>
-          <LoginButtonText>Entre agora!</LoginButtonText>
+          <LoginButtonText>Entrar</LoginButtonText>
         </LoginButton>
       </Content>
     </Container>
