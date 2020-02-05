@@ -61,8 +61,8 @@ export default function Supply({ navigation }) {
         <SupplyText>Suas Ofertas</SupplyText>
         <SupplyList
           data={product}
-          renderItem={({ item }) => <SupplyItem {...item} key={item.id} />}
-          keyExtractor={item => String(item.id)}
+          renderItem={({ item }) => <SupplyItem {...item} key={item._id} />}
+          keyExtractor={item => String(item._id)}
           ItemSeparatorComponent={() => <Separator />}
         />
       </Content>
