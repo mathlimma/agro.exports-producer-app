@@ -109,7 +109,7 @@ const Root = createSwitchNavigator(
     Register,
     App,
   },
-  { initialRouteName: 'Login' }
+  { initialRouteName: 'Auth' }
 );
 
 const Routes = createAppContainer(Root);
