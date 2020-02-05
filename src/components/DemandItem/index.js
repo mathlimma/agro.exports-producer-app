@@ -20,7 +20,7 @@ export default function DemandItem({
   function handleNavigation() {
     navigation.push('DemandDetails', { demand_id: _id });
   }
-  console.log(product.photo_id.url);
+
   return (
     <Container key={_id} onPress={handleNavigation}>
       <ContentView>

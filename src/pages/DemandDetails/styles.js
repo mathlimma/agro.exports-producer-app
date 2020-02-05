@@ -36,7 +36,8 @@ export const EcePhoto = styled.Image`
   width: 66px;
   height: 66px;
   border-radius: 33px;
-  border: 1px solid #ccc;
+  border-width: 1px;
+  border-color: #ccc;
   margin-right: 15px;
 `;
 export const EceInfoView = styled.View``;
