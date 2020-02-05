@@ -10,7 +10,7 @@ export const Content = styled.View`
   align-items: center;
 `;
 
-export const ProductView = styled.View`
+export const ProductButton = styled.TouchableOpacity`
   padding: 10px;
   flex-direction: row;
   align-items: center;

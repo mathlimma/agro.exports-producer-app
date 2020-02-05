@@ -12,6 +12,7 @@ import DemandDetails from './pages/DemandDetails';
 import Profile from './pages/Profile';
 import Supply from './pages/Supply';
 import AddSupply from './pages/AddSupply';
+import CreateSupply from './pages/CreateSupply';
 import Register from './pages/Register';
 import saveMoney from './assets/icons/save-money.png';
 import saveMoneyGreen from './assets/icons/money-green.png';
@@ -28,6 +29,9 @@ const SupplyStack = createStackNavigator(
     },
     AddSupply: {
       screen: AddSupply,
+    },
+    CreateSupply: {
+      screen: CreateSupply,
     },
   },
   { headerMode: 'none' }

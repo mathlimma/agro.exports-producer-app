@@ -7,7 +7,7 @@ import {
   ProductList,
   AddSupplyText,
   ProductListView,
-  ProductView,
+  ProductButton,
   ProductImage,
   ProductText,
   ProductTextView,
@@ -61,15 +61,15 @@ const product = [
   },
 ];
 
-export default function AddSupply() {
+export default function AddSupply({ navigation }) {
   function ProductItem(item) {
     return (
-      <ProductView>
+      <ProductButton onPress={navigation.push('CreateSupply')}>
         <ProductImage source={{ uri: item.url }} />
         <ProductTextView>
           <ProductText> {item.name}</ProductText>
         </ProductTextView>
-      </ProductView>
+      </ProductButton>
     );
   }
 
@@ -82,6 +82,7 @@ export default function AddSupply() {
           <ProductList
             data={product}
             renderItem={({ item }) => ProductItem(item)}
+            onPress={() => navigation.push('CreateSupply')}
             keyExtractor={item => String(item.name)}
           />
         </ProductListView>

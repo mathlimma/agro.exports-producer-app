@@ -55,7 +55,7 @@ export const LogoutButton = styled.TouchableOpacity`
   width: 288px;
   height: 45px;
   border-radius: 5px;
-  border: 2px solid #a60101;
+  border: 1px solid #a60101;
 `;
 
 export const LogoutButtonText = styled.Text`
