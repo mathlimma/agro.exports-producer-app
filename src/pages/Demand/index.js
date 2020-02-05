@@ -5,14 +5,16 @@ import AppBar from '../../components/AppBar';
 
 const demands = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-export default function Demand() {
+export default function Demand({ navigation }) {
   return (
     <Container>
       <AppBar title="Demandas" />
       <Content>
         <DemandsList
           data={demands}
-          renderItem={({ item }) => <DemandItem {...item} key={item._id} />}
+          renderItem={({ item }) => (
+            <DemandItem {...item} key={item._id} navigation={navigation} />
+          )}
           keyExtractor={item => String(item._id)}
         />
       </Content>

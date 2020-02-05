@@ -60,5 +60,4 @@ export const LogoutButton = styled.TouchableOpacity`
 
 export const LogoutButtonText = styled.Text`
   color: #a60101;
-  font-weight: bold;
 `;
