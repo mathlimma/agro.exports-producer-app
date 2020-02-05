@@ -31,16 +31,14 @@ export const CreateSupplyText = styled.Text`
 
 export const SupplyText = styled.Text`
   padding-top: 50px;
+  margin-bottom: 10px;
   font-size: 20px;
 `;
 
 export const SupplyList = styled(FlatList).attrs({
   horizontal: true,
   showsHorizontalScrollIndicator: false,
-})`
-  position: absolute;
-  flex: 1;
-`;
+})``;
 
 export const Separator = styled.View`
   height: 280px;

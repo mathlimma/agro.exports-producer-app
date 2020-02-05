@@ -35,7 +35,7 @@ const App = createBottomTabNavigator(
         tabBarIcon: ({ focused }) => (
           <Image
             source={focused ? farmerGreen : farmer}
-            style={{ width: 25, height: 25 }}
+            style={{ width: 38, height: 38 }}
           />
         ),
       },

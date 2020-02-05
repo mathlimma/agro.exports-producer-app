@@ -1,15 +1,16 @@
 import React from 'react';
-import { Container, ProductNameText, ProductImage } from './styles';
+import { Container, ProductNameText, ProductImage, StatusText } from './styles';
 
-export default function SupplyItem() {
+export default function SupplyItem({ name, url, active }) {
   return (
-    <Container>
-      <ProductNameText>Brocolis</ProductNameText>
+    <Container active={active}>
+      <ProductNameText>{name}</ProductNameText>
       <ProductImage
         source={{
-          uri: 'colocar aqui a foto',
+          uri: url,
         }}
       />
+      <StatusText>Ativo</StatusText>
     </Container>
   );
 }
