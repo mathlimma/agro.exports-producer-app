@@ -18,8 +18,8 @@ export default function Auth({ navigation }) {
 
       if (token) {
         api.defaults.headers.Authorization = `Bearer ${token}`;
+        navigation.navigate('App');
       }
-      navigation.navigate('App');
     }
 
     redirect();

@@ -18,18 +18,19 @@ import {
 export default function Login({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setpassword] = useState('');
-
+  const [loading, setloading] = useState(true);
   async function handleLogin() {
     if (email && password) {
       try {
         const response = await api.post('producer/signin', { email, password });
         const { producer, token } = response.data;
-
+        setloading(false);
         api.defaults.headers.Authorization = `Bearer ${token}`;
         await AsyncStorage.setItem('@token', token);
         navigation.navigate('App', { producer });
       } catch (err) {
         console.log(err.request);
+        setloading(false);
       }
     }
   }
@@ -65,7 +66,7 @@ export default function Login({ navigation }) {
           />
         </InputWrapper>
         <LoginButton onPress={handleLogin}>
-          <LoginButtonText>Entrar</LoginButtonText>
+          <LoginButtonText>{loading ? 'Aguarde...' : 'Entrar'}</LoginButtonText>
         </LoginButton>
       </Content>
     </Container>

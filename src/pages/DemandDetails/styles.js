@@ -21,7 +21,8 @@ export const ProductPhoto = styled.Image`
   height: 66px;
   border-radius: 33px;
   margin-right: 20px;
-  border: 1px solid #ccc;
+  border-width: 1px;
+  border-color: #ccc;
 `;
 export const ProductName = styled.Text`
   font-size: 22px;
@@ -59,7 +60,8 @@ export const NegociationButton = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  border: 1px solid ${props => props.color};
+  border-width: 1px;
+  border-color: ${props => props.color};
   height: 54px;
   width: 288px;
   margin-top: 30px;

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Feather, MaterialIcons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
+import { AsyncStorage } from 'react-native';
 import AppBar from '../../components/AppBar';
-
+import api from '../../services/api';
 import {
   Container,
   Content,
@@ -17,6 +18,18 @@ import {
 } from './styles';
 
 export default function Profile() {
+  const [producer, setProducer] = useState({});
+
+  useEffect(() => {
+    async function getUser() {
+      const token = await AsyncStorage.getItem('@token');
+      const response = await api.get('token');
+      setProducer(response.data);
+    }
+
+    getUser();
+  }, []);
+
   async function handleUploadPhoto() {
     const cameraRoll = await ImagePicker.requestCameraRollPermissionsAsync();
     if (cameraRoll.status === 'granted') {
