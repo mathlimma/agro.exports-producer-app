@@ -16,9 +16,7 @@ export const ContentView = styled.View`
   align-items: center;
 `;
 
-export const ContentPhoto = styled.Image.attrs(props => ({
-  source: props.source,
-}))`
+export const ContentPhoto = styled.Image`
   height: 56px;
   width: 56px;
   border-radius: 28px;

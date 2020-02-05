@@ -17,7 +17,8 @@ import {
   NegociationButtonText,
 } from './styles';
 
-export default function DemandDetails() {
+export default function DemandDetails({ navigation }) {
+  console.log(navigation.getParams('demand_id', null));
   return (
     <Container>
       <AppBar title="Detalhes da demanda" />

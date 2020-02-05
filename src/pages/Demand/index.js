@@ -10,7 +10,7 @@ export default function Demand({ navigation }) {
     async function getDemands() {
       try {
         const response = await api.get('producer/demands');
-        console.log('ola');
+
         setDemands(response.data.demands_id);
       } catch (error) {
         console.log(error);
@@ -26,6 +26,7 @@ export default function Demand({ navigation }) {
       <Content>
         <DemandsList
           data={demands}
+          keyExtractor={item => item._id}
           renderItem={({ item }) => (
             <DemandItem {...item} navigation={navigation} />
           )}

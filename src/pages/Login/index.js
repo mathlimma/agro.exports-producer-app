@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Entypo } from '@expo/vector-icons';
 import { AsyncStorage } from 'react-native';
 import AppBar from '../../components/AppBar';
@@ -29,7 +29,7 @@ export default function Login({ navigation }) {
         await AsyncStorage.setItem('@token', token);
         navigation.navigate('App', { producer });
       } catch (err) {
-        console.log(err);
+        console.log(err.request);
       }
     }
   }
