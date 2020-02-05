@@ -82,7 +82,6 @@ export default function AddSupply({ navigation }) {
           <ProductList
             data={product}
             renderItem={({ item }) => ProductItem(item)}
-            onPress={() => navigation.push('CreateSupply')}
             keyExtractor={item => String(item.name)}
           />
         </ProductListView>

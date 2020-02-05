@@ -26,16 +26,58 @@ export const Input = styled.TextInput.attrs({
   width: 290px;
 `;
 
-export const CreateSupplyButtonText = styled.Text``;
+export const CreateSupplyButtonText = styled.Text`
+  color: #01a643;
+`;
 
-export const TextContent = styled.Text``;
+export const SupplyActiveButtonText = styled.Text`
+  color: #01a643;
+`;
+
+export const SupplyDissabledButtonText = styled.Text`
+  color: #01a643;
+`;
+
+export const TextContent = styled.Text`
+  margin-top: 20px;
+  font-size: 19px;
+  font-weight: bold;
+`;
 
 export const CreateSupplyButton = styled.TouchableOpacity`
   margin-top: 50px;
-  background: #01a643;
+  background: #fff;
   justify-content: center;
   align-items: center;
-  width: 290px;
-  height: 55px;
+  width: 288px;
+  height: 45px;
   border-radius: 5px;
+  border: 1px solid #01a643;
+`;
+
+export const SupplyActiveButton = styled.TouchableOpacity`
+  margin-top: 50px;
+  background: #fff;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 38px;
+  border-radius: 5px;
+  border: 1px solid #01a643;
+`;
+
+export const SupplyDisabledButton = styled.TouchableOpacity`
+  margin-top: 50px;
+  background: #fff;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 38px;
+  border-radius: 5px;
+  border: 1px solid #01a643;
+`;
+
+export const SupplyActiveButtonView = styled.View`
+  flex-direction: row;
+  background-color: blue;
 `;

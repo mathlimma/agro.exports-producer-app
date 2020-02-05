@@ -9,6 +9,9 @@ import {
   InputWrapper,
   CreateSupplyButton,
   CreateSupplyButtonText,
+  SupplyActiveButton,
+  SupplyActiveButtonView,
+  SupplyActiveButtonText,
 } from './styles';
 
 export default function CreateSupply() {
@@ -29,6 +32,15 @@ export default function CreateSupply() {
         <InputWrapper>
           <Input placeholder="Preço (R$)" />
         </InputWrapper>
+
+        <SupplyActiveButtonView>
+          <SupplyActiveButton>
+            <SupplyActiveButtonText>Ativo</SupplyActiveButtonText>
+          </SupplyActiveButton>
+          <SupplyActiveButton>
+            <SupplyActiveButtonText>Inativo</SupplyActiveButtonText>
+          </SupplyActiveButton>
+        </SupplyActiveButtonView>
 
         <CreateSupplyButton>
           <CreateSupplyButtonText>Criar Oferta</CreateSupplyButtonText>
