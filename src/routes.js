@@ -7,6 +7,8 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Auth from './pages/Auth';
 import Login from './pages/Login';
 import Demand from './pages/Demand';
+import DemandDetails from './pages/DemandDetails';
+
 import Profile from './pages/Profile';
 import Supply from './pages/Supply';
 import AddSupply from './pages/AddSupply';
@@ -31,10 +33,22 @@ const SupplyStack = createStackNavigator(
   { headerMode: 'none' }
 );
 
-const App = createBottomTabNavigator(
+const DemandStack = createStackNavigator(
   {
     Demand: {
       screen: Demand,
+    },
+    DemandDetails: {
+      screen: DemandDetails,
+    },
+  },
+  { headerMode: 'none' }
+);
+
+const App = createBottomTabNavigator(
+  {
+    DemandStack: {
+      screen: DemandStack,
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <Image
@@ -68,7 +82,7 @@ const App = createBottomTabNavigator(
     },
   },
   {
-    initialRouteName: 'Demand',
+    initialRouteName: 'DemandStack',
     tabBarOptions: {
       showLabel: false,
 

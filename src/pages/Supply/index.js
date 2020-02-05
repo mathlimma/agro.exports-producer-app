@@ -1,7 +1,6 @@
 import React from 'react';
 import AppBar from '../../components/AppBar';
 import SupplyItem from '../../components/SupplyItem';
-import AddSupply from '../AddSupply';
 
 import {
   Container,
@@ -54,7 +53,7 @@ export default function Supply({ navigation }) {
       <AppBar title="Oferta" size="22" />
       <Content>
         <ButtonView>
-          <CreateSupplyButton onpress={() => navigation.push('AddSupply')}>
+          <CreateSupplyButton onPress={() => navigation.push('AddSupply')}>
             <Icon name="plus" size={25} color="#fff" />
             <CreateSupplyText>Adicionar Oferta</CreateSupplyText>
           </CreateSupplyButton>
@@ -62,8 +61,8 @@ export default function Supply({ navigation }) {
         <SupplyText>Suas Ofertas</SupplyText>
         <SupplyList
           data={product}
-          renderItem={({ item }) => <SupplyItem {...item} key={item.id} />}
-          keyExtractor={item => String(item.id)}
+          renderItem={({ item }) => <SupplyItem {...item} key={item._id} />}
+          keyExtractor={item => String(item._id)}
           ItemSeparatorComponent={() => <Separator />}
         />
       </Content>
