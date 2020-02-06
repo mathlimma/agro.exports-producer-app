@@ -1,13 +1,11 @@
 import styled from 'styled-components/native';
-import { KeyboardAvoidingView } from 'react-native';
 
 export const Container = styled.View`
   flex: 1;
+  background: #fff;
 `;
 
-export const Content = styled(KeyboardAvoidingView).attrs({
-  behavior: 'height',
-})`
+export const Content = styled.View`
   justify-content: center;
   align-items: center;
 `;
@@ -56,6 +54,7 @@ export const CreateSupplyButton = styled.TouchableOpacity`
 `;
 
 export const SupplyActiveButton = styled.TouchableOpacity`
+  margin-right: 2px;
   margin-top: 50px;
   justify-content: center;
   align-items: center;
@@ -85,7 +84,6 @@ export const ProductButton = styled.View`
   padding: 10px;
   flex-direction: row;
   align-items: center;
-
 `;
 
 export const ProductTextView = styled.View`

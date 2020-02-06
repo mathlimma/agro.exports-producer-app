@@ -22,11 +22,10 @@ import {
 export default function DemandDetails({ navigation }) {
   const [demand, setDemand] = useState({});
   const [loading, setLoading] = useState(true);
+  const { demand_id } = navigation.state.params;
   useEffect(() => {
     async function getDemand() {
       try {
-        const { demand_id } = navigation.state.params;
-
         const response = await api.get(`demand/${demand_id}`);
         setDemand(response.data);
         setLoading(false);
@@ -40,6 +39,22 @@ export default function DemandDetails({ navigation }) {
   const priceFormatted = useMemo(() => String(demand.price).replace('.', ','), [
     demand.price,
   ]);
+
+  async function handleNegociation(accept) {
+    try {
+      const response = await api.delete('negociation', {
+        data: { demand_id },
+        params: { accept },
+        headers: {
+          'content-type': 'application/json',
+        },
+      });
+      console.log(response.data);
+      navigation.pop();
+    } catch (err) {
+      console.log(err.request);
+    }
+  }
 
   return (
     <Container>
@@ -81,13 +96,19 @@ export default function DemandDetails({ navigation }) {
             <DemandDetailsText>Preço: R${priceFormatted}</DemandDetailsText>
           </DemandDetailsView>
 
-          <NegociationButton color="#01A643">
+          <NegociationButton
+            color="#01A643"
+            onPress={() => handleNegociation(true)}
+          >
             <NegociationButtonText color="#01A643">
               Aceitar Negociação
             </NegociationButtonText>
           </NegociationButton>
 
-          <NegociationButton color="#FB0909">
+          <NegociationButton
+            color="#FB0909"
+            onPress={() => handleNegociation(false)}
+          >
             <NegociationButtonText color="#FB0909">
               Recusar Negociação
             </NegociationButtonText>
