@@ -83,6 +83,7 @@ export default function EditSupply({ navigation }) {
               placeholder="Preço/kg (R$)"
               onChangeText={setPrice}
               value={price}
+              keyboardType="decimal-pad"
             />
           </InputWrapper>
 

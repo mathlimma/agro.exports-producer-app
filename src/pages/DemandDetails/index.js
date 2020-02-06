@@ -15,9 +15,13 @@ import {
   EceName,
   EceDescription,
   DemandDetailsView,
-  DemandDetailsText,
+  DemandTextView,
+  DemandCityText,
+  DemandAmountText,
+  DemandPriceText,
   NegociationButton,
   NegociationButtonText,
+  SimpleText,
 } from './styles';
 
 export default function DemandDetails({ navigation }) {
@@ -103,13 +107,20 @@ export default function DemandDetails({ navigation }) {
           </EceDetailsView>
 
           <DemandDetailsView>
-            <DemandDetailsText>
-              Localização: {demand.ece_id.city || 'Não Informado'}
-            </DemandDetailsText>
-            <DemandDetailsText>
-              Quantidade: {demand.kg_amount}kg
-            </DemandDetailsText>
-            <DemandDetailsText>Preço: R${priceFormatted}</DemandDetailsText>
+            <DemandTextView>
+              <SimpleText>Localização: </SimpleText>
+              <DemandCityText>
+                {demand.ece_id.city || 'Não Informado'}
+              </DemandCityText>
+            </DemandTextView>
+            <DemandTextView>
+              <SimpleText>Quantidade: </SimpleText>
+              <DemandAmountText>{demand.kg_amount}kg</DemandAmountText>
+            </DemandTextView>
+            <DemandTextView>
+              <SimpleText>Preço: </SimpleText>
+              <DemandPriceText>R${priceFormatted}</DemandPriceText>
+            </DemandTextView>
           </DemandDetailsView>
 
           <NegociationButton

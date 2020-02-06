@@ -53,9 +53,30 @@ export const DemandDetailsView = styled.View`
   width: 280px;
   margin-top: 19px;
 `;
-export const DemandDetailsText = styled.Text`
+export const DemandTextView = styled.View`
+  flex-direction: row;
+`;
+export const DemandPriceText = styled.Text`
+  margin-bottom: 5px;
+  color: #707070;
+  font-weight: bold;
+`;
+
+export const DemandAmountText = styled.Text`
+  margin-bottom: 5px;
+  color: #01a643;
+  font-weight: bold;
+`;
+export const SimpleText = styled.Text`
   margin-bottom: 5px;
 `;
+
+export const DemandCityText = styled.Text`
+  margin-bottom: 5px;
+  color: #ef6262;
+  font-weight: bold;
+`;
+
 export const NegociationButton = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;

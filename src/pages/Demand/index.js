@@ -36,7 +36,7 @@ function Demand({ navigation, isFocused }) {
       ) : (
         <Content>
           {demandsEmpty ? (
-            <EmptyText>Você ainda não possui demandas!</EmptyText>
+            <EmptyText>Você não possui demandas no momento!</EmptyText>
           ) : (
             <DemandsList
               data={demands}
