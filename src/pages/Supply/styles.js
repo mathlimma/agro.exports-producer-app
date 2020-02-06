@@ -2,7 +2,9 @@ import styled from 'styled-components/native';
 import { Feather } from '@expo/vector-icons';
 import { FlatList } from 'react-native';
 
-export const Container = styled.View``;
+export const Container = styled.View`
+  flex: 1;
+`;
 
 export const Content = styled.View`
   justify-content: center;
