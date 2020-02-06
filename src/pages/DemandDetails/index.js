@@ -39,9 +39,9 @@ export default function DemandDetails({ navigation }) {
     getDemand();
   }, []);
 
-  const sendOnWhatsApp = mobileNum => {
+  const sendOnWhatsApp = (mobileNum, companyName) => {
     if (mobileNum) {
-      const url = `whatsapp://send?&phone=55${mobileNum}&text=Ola`;
+      const url = `whatsapp://send?&phone=55${mobileNum}&text=Ola+${companyName}+!+Vim+pelo+AgroExports+,+gostaria+de+conversar+sobre+os+detalhes+da+sua+demanda`;
       try {
         Linking.openURL(url);
       } catch (err) {
