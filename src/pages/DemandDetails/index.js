@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { Linking, Alert } from 'react-native';
 import AppBar from '../../components/AppBar';
 import api from '../../services/api';
 import Loading from '../../components/Loading';
@@ -37,6 +38,20 @@ export default function DemandDetails({ navigation }) {
 
     getDemand();
   }, []);
+
+  const sendOnWhatsApp = mobileNum => {
+    if (mobileNum) {
+      const url = `whatsapp://send?&phone=55${mobileNum}&text=Ola`;
+      try {
+        Linking.openURL(url);
+      } catch (err) {
+        Alert.alert('Make sure Whatsapp installed on your device');
+      }
+    } else {
+      Alert.alert('Please insert mobile no');
+    }
+  };
+
   const priceFormatted = useMemo(() => String(demand.price).replace('.', ','), [
     demand.price,
   ]);
@@ -81,7 +96,10 @@ export default function DemandDetails({ navigation }) {
             <DemandDetailsText>Preço: R${priceFormatted}</DemandDetailsText>
           </DemandDetailsView>
 
-          <NegociationButton color="#01A643">
+          <NegociationButton
+            color="#01A643"
+            onPress={sendOnWhatsApp(demand.ece_id.tel)}
+          >
             <NegociationButtonText color="#01A643">
               Aceitar Negociação
             </NegociationButtonText>

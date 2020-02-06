@@ -16,10 +16,4 @@ export default function WhatsAppLink() {
       Alert.alert('Please insert mobile no');
     }
   };
-
-  return (
-    <Container>
-      <Send onPress={() => sendOnWhatsApp} title="Send WhatsApp Message" />
-    </Container>
-  );
 }
