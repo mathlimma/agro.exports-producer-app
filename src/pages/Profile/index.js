@@ -5,6 +5,7 @@ import { AsyncStorage } from 'react-native';
 import AppBar from '../../components/AppBar';
 import api from '../../services/api';
 import account from '../../assets/icons/account.png';
+import Loading from '../../components/Loading';
 
 import {
   Container,
@@ -19,19 +20,26 @@ import {
   ProfileView,
 } from './styles';
 
-export default function Profile() {
-  const [producer, setProducer] = useState(null);
+export default function Profile({ navigation }) {
+  const [producer, setProducer] = useState({});
   const [url, setUrl] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getUser() {
       const response = await api.get('token');
       setProducer(response.data);
       setUrl(response.data.avatar_id.url);
+      setLoading(false);
     }
 
     getUser();
   }, []);
+
+  async function handleLogout() {
+    await AsyncStorage.removeItem('@token');
+    navigation.navigate('Login');
+  }
 
   async function handleUploadPhoto() {
     const cameraRoll = await ImagePicker.requestCameraRollPermissionsAsync();
@@ -55,56 +63,59 @@ export default function Profile() {
       }
     }
   }
-  console.log(producer);
   return (
     <Container>
       <AppBar title="Perfil" />
-      <Content>
-        <ProfileView>
-          <PhotoView onPress={handleUploadPhoto}>
-            {!url ? (
-              <PhotoImage source={account} />
-            ) : (
-              <PhotoImage source={{ uri: url }} />
-            )}
-            <TextPhoto>Mudar foto</TextPhoto>
-          </PhotoView>
-          <InputWrapper>
-            <Feather
-              style={{ marginRight: 5 }}
-              name="user"
-              size={15}
-              color="#808080"
-            />
-            <Input value={producer.name} />
-            <MaterialIcons name="edit" size={15} color="#808080" />
-          </InputWrapper>
-          <InputWrapper>
-            <MaterialIcons
-              name="description"
-              size={15}
-              color="#808080"
-              style={{ marginRight: 5 }}
-            />
-            <Input value={producer.description} />
-            <MaterialIcons name="edit" size={15} color="#808080" />
-          </InputWrapper>
-          <InputWrapper>
-            <Feather
-              name="phone"
-              size={15}
-              color="#808080"
-              style={{ marginRight: 5 }}
-            />
-            <Input value={producer.cel} />
-            <MaterialIcons name="edit" size={15} color="#808080" />
-          </InputWrapper>
-        </ProfileView>
+      {loading ? (
+        <Loading />
+      ) : (
+        <Content>
+          <ProfileView>
+            <PhotoView onPress={handleUploadPhoto}>
+              {!url ? (
+                <PhotoImage source={account} />
+              ) : (
+                <PhotoImage source={{ uri: url }} />
+              )}
+              <TextPhoto>Mudar foto</TextPhoto>
+            </PhotoView>
+            <InputWrapper>
+              <Feather
+                style={{ marginRight: 5 }}
+                name="user"
+                size={15}
+                color="#808080"
+              />
+              <Input value={producer.name} />
+              <MaterialIcons name="edit" size={15} color="#808080" />
+            </InputWrapper>
+            <InputWrapper>
+              <MaterialIcons
+                name="description"
+                size={15}
+                color="#808080"
+                style={{ marginRight: 5 }}
+              />
+              <Input value={producer.description} />
+              <MaterialIcons name="edit" size={15} color="#808080" />
+            </InputWrapper>
+            <InputWrapper>
+              <Feather
+                name="phone"
+                size={15}
+                color="#808080"
+                style={{ marginRight: 5 }}
+              />
+              <Input value={producer.cel} />
+              <MaterialIcons name="edit" size={15} color="#808080" />
+            </InputWrapper>
+          </ProfileView>
 
-        <LogoutButton>
-          <LogoutButtonText>Sair</LogoutButtonText>
-        </LogoutButton>
-      </Content>
+          <LogoutButton onPress={handleLogout}>
+            <LogoutButtonText>Sair</LogoutButtonText>
+          </LogoutButton>
+        </Content>
+      )}
     </Container>
   );
 }

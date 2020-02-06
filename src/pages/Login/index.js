@@ -18,10 +18,11 @@ import {
 export default function Login({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setpassword] = useState('');
-  const [loading, setloading] = useState(true);
+  const [loading, setloading] = useState(false);
   async function handleLogin() {
     if (email && password) {
       try {
+        setloading(true);
         const response = await api.post('producer/signin', { email, password });
         const { producer, token } = response.data;
         setloading(false);

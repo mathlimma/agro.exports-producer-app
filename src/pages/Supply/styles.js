@@ -38,7 +38,9 @@ export const SupplyText = styled.Text`
 export const SupplyList = styled(FlatList).attrs({
   horizontal: true,
   showsHorizontalScrollIndicator: false,
-})``;
+})`
+  padding: 0 10px;
+`;
 
 export const Separator = styled.View`
   height: 280px;

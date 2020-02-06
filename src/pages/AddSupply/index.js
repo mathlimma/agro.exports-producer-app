@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AppBar from '../../components/AppBar';
 import api from '../../services/api';
-
+import Loading from '../../components/Loading';
 import {
   Container,
   Content,
@@ -16,12 +16,15 @@ import {
 
 export default function AddSupply({ navigation }) {
   const [products, setProducts] = useState([]);
+  const [loading, setloading] = useState(true);
+
   useEffect(() => {
     async function getSupplies() {
       try {
         const response = await api.get('/product');
 
         setProducts(response.data);
+        setloading(false);
       } catch (error) {
         console.log(error);
       }
@@ -48,18 +51,22 @@ export default function AddSupply({ navigation }) {
   return (
     <Container>
       <AppBar title="Adicionar Oferta" />
-      <Content>
-        <AddSupplyView>
-          <AddSupplyText>Selecione o Produto</AddSupplyText>
-        </AddSupplyView>
+      {loading ? (
+        <Loading />
+      ) : (
+        <Content>
+          <AddSupplyView>
+            <AddSupplyText>Selecione o Produto</AddSupplyText>
+          </AddSupplyView>
 
-        <ProductList
-          showsVerticalScrollIndicator={false}
-          data={products}
-          renderItem={({ item }) => ProductItem(item)}
-          keyExtractor={item => String(item._id)}
-        />
-      </Content>
+          <ProductList
+            showsVerticalScrollIndicator={false}
+            data={products}
+            renderItem={({ item }) => ProductItem(item)}
+            keyExtractor={item => String(item._id)}
+          />
+        </Content>
+      )}
     </Container>
   );
 }

@@ -26,12 +26,10 @@ import {
 
 export default function CreateSupply({ navigation }) {
   const { item } = navigation.state.params;
-  console.log(item);
   const [active, setActive] = useState(true);
   const [description, setDescription] = useState('');
   const [location, setLocation] = useState(null);
   const [price, setPrice] = useState('');
-  const [product_id, setProduct_id] = useState('');
 
   async function getLocationAsync() {
     const { status } = await Permissions.askAsync(Permissions.LOCATION);
@@ -44,7 +42,7 @@ export default function CreateSupply({ navigation }) {
       );
     }
     const locationReq = await Location.getCurrentPositionAsync({});
-    setLocation(locationReq);
+    return locationReq;
   }
 
   function ProductItem() {
@@ -60,19 +58,23 @@ export default function CreateSupply({ navigation }) {
   }
 
   async function handleCreateSupply() {
-    await getLocationAsync();
+    try {
+      const { coords } = await getLocationAsync();
 
-    const priceNum = Number(price);
-    const newSupply = {
-      product_id,
-      active,
-      description,
-      priceNum,
-      latitude: location.coords.latitude,
-      longitude: location.coords.longitude,
-    };
+      const priceNum = Number(price);
+      const newSupply = {
+        product_id: item._id,
+        active,
+        description,
+        price: priceNum,
+        latitude: coords.latitude,
+        longitude: coords.longitude,
+      };
 
-    const request = await api.post('/supply', newSupply);
+      const request = await api.post('/supply', newSupply);
+    } catch (err) {
+      console.log(err.request);
+    }
   }
 
   return (
