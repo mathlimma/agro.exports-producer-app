@@ -51,7 +51,9 @@ function Supply({ navigation, isFocused }) {
           <SupplyText>Suas Ofertas</SupplyText>
           <SupplyList
             data={supplies}
-            renderItem={({ item }) => <SupplyItem {...item} key={item._id} />}
+            renderItem={({ item }) => (
+              <SupplyItem navigation={navigation} {...item} key={item._id} />
+            )}
             keyExtractor={item => String(item._id)}
             ItemSeparatorComponent={() => <Separator />}
           />

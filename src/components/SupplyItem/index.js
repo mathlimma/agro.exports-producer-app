@@ -1,16 +1,20 @@
 import React from 'react';
 import { Container, ProductNameText, ProductImage, StatusText } from './styles';
 
-export default function SupplyItem({ product_id, active }) {
+export default function SupplyItem(item) {
+  console.log(item);
+  function handleEdit() {
+    item.navigation.push('EditSupply', { item });
+  }
   return (
-    <Container active={active}>
-      <ProductNameText>{product_id.name}</ProductNameText>
+    <Container active={item.active} onPress={handleEdit}>
+      <ProductNameText>{item.product_id.name}</ProductNameText>
       <ProductImage
         source={{
-          uri: product_id.photo_id.url,
+          uri: item.product_id.photo_id.url,
         }}
       />
-      <StatusText>Ativo</StatusText>
+      <StatusText>{item.active ? 'Ativo' : 'Inativo'}</StatusText>
     </Container>
   );
 }

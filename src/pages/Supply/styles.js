@@ -4,6 +4,7 @@ import { FlatList } from 'react-native';
 
 export const Container = styled.View`
   flex: 1;
+  background-color: white;
 `;
 
 export const Content = styled.View`
@@ -32,8 +33,8 @@ export const CreateSupplyText = styled.Text`
 `;
 
 export const SupplyText = styled.Text`
-  padding-top: 50px;
   margin-bottom: 10px;
+  margin-top: 20px;
   font-size: 20px;
 `;
 
@@ -41,7 +42,7 @@ export const SupplyList = styled(FlatList).attrs({
   horizontal: true,
   showsHorizontalScrollIndicator: false,
 })`
-  padding: 0 10px;
+  padding: 0 20px;
 `;
 
 export const Separator = styled.View`

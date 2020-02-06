@@ -19,6 +19,8 @@ export const ContentView = styled.View`
 export const ContentPhoto = styled.Image`
   height: 56px;
   width: 56px;
+  border-width: 1px;
+  border-color: #83ed7b99;
   border-radius: 28px;
 `;
 

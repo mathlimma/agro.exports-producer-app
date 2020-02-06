@@ -14,6 +14,7 @@ export const EmptyText = styled.Text`
   font-weight: bold;
   font-size: 16px;
   margin-top: 20px;
+  color: #ef6262;
 `;
 
 export const DemandsList = styled(FlatList).attrs({

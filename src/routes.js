@@ -18,7 +18,7 @@ import saveMoney from './assets/icons/save-money.png';
 import saveMoneyGreen from './assets/icons/money-green.png';
 import sprout from './assets/icons/sprout.png';
 import sproutGreen from './assets/icons/sprout-green.png';
-
+import EditSupply from './pages/EditSupply';
 import farmer from './assets/icons/farmer.png';
 import farmerGreen from './assets/icons/farmer-green.png';
 
@@ -33,6 +33,7 @@ const SupplyStack = createStackNavigator(
     CreateSupply: {
       screen: CreateSupply,
     },
+    EditSupply,
   },
   { headerMode: 'none' }
 );

@@ -25,55 +25,36 @@ import {
   ProductText,
 } from './styles';
 
-export default function CreateSupply({ navigation }) {
+export default function EditSupply({ navigation }) {
   const { item } = navigation.state.params;
-  const [active, setActive] = useState(true);
-  const [description, setDescription] = useState('');
+  console.log(item);
+  const [active, setActive] = useState(item.active);
+  const [price, setPrice] = useState(String(item.price));
+
+  const [description, setDescription] = useState(item.description);
   const [check, setCheck] = useState(false);
-  const [location, setLocation] = useState(null);
-
-  const [price, setPrice] = useState('');
-
-  async function getLocationAsync() {
-    const { status } = await Permissions.askAsync(Permissions.LOCATION);
-    if (status !== 'granted') {
-      Alert.alert(
-        'Localização',
-        'Permissão negada',
-        [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
-        { cancelable: false }
-      );
-    }
-    const locationReq = await Location.getCurrentPositionAsync({});
-    return locationReq;
-  }
 
   function ProductItem() {
     return (
       <ProductButton>
-        <ProductImage source={{ uri: item.photo_id.url }} />
+        <ProductImage source={{ uri: item.product_id.photo_id.url }} />
         <ProductTextView>
-          <ProductText> {item.name}</ProductText>
+          <ProductText> {item.product_id.name}</ProductText>
         </ProductTextView>
       </ProductButton>
     );
   }
 
-  async function handleCreateSupply() {
+  async function handleEditSupply() {
     try {
-      const { coords } = await getLocationAsync();
-      console.log(item._id);
       const priceNum = Number(price);
       const newSupply = {
-        product_id: item._id,
         active,
         description,
         price: priceNum,
-        latitude: coords.latitude,
-        longitude: coords.longitude,
       };
 
-      const request = await api.post('/supply', newSupply);
+      const request = await api.put(`/supply/${item._id}`, newSupply);
       setCheck(true);
       setTimeout(() => navigation.popToTop(), 1200);
     } catch (err) {
@@ -83,7 +64,7 @@ export default function CreateSupply({ navigation }) {
 
   return (
     <Container>
-      <AppBar title="Criar Oferta" />
+      <AppBar title="Editar Oferta" />
       {check ? (
         <Check />
       ) : (
@@ -121,8 +102,8 @@ export default function CreateSupply({ navigation }) {
             </SupplyDisabledButton>
           </SupplyActiveButtonView>
 
-          <CreateSupplyButton onPress={handleCreateSupply}>
-            <CreateSupplyButtonText>Criar Oferta</CreateSupplyButtonText>
+          <CreateSupplyButton onPress={handleEditSupply}>
+            <CreateSupplyButtonText>Editar Oferta</CreateSupplyButtonText>
           </CreateSupplyButton>
         </Content>
       )}
