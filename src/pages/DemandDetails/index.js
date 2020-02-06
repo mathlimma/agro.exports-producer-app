@@ -40,7 +40,7 @@ export default function DemandDetails({ navigation }) {
 
   const sendOnWhatsApp = (mobileNum, companyName) => {
     if (mobileNum) {
-      const url = `whatsapp://send?&phone=55${mobileNum}&text=Ola+${companyName}+!+Vim+pelo+AgroExports+,+gostaria+de+conversar+sobre+os+detalhes+da+sua+demanda`;
+      const url = `whatsapp://send?&phone=55${mobileNum}&text=Ola+${companyName}+!+Vim+pelo+AgroExports,+gostaria+de+conversar+sobre+os+detalhes+da+sua+demanda.`;
       try {
         Linking.openURL(url);
       } catch (err) {
@@ -66,6 +66,7 @@ export default function DemandDetails({ navigation }) {
       });
       console.log(response.data);
       navigation.pop();
+      sendOnWhatsApp(demand.ece_id.tel);
     } catch (err) {
       console.log(err.request);
     }
