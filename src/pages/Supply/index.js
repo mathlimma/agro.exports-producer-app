@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { withNavigationFocus } from 'react-navigation';
 import AppBar from '../../components/AppBar';
 import SupplyItem from '../../components/SupplyItem';
 import api from '../../services/api';
@@ -16,7 +17,7 @@ import {
   Icon,
 } from './styles';
 
-export default function Supply({ navigation }) {
+function Supply({ navigation, isFocused }) {
   const [supplies, setSupplies] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -33,7 +34,7 @@ export default function Supply({ navigation }) {
     }
 
     getSupplies();
-  }, []);
+  }, [isFocused]);
   return (
     <Container>
       <AppBar title="Oferta" size="22" />
@@ -59,3 +60,5 @@ export default function Supply({ navigation }) {
     </Container>
   );
 }
+
+export default withNavigationFocus(Supply);

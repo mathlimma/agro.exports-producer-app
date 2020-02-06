@@ -66,7 +66,7 @@ export default function DemandDetails({ navigation }) {
       });
       console.log(response.data);
       navigation.pop();
-      sendOnWhatsApp(demand.ece_id.tel);
+      if (accept) sendOnWhatsApp(demand.ece_id.tel, demand.ece_id.name);
     } catch (err) {
       console.log(err.request);
     }

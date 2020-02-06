@@ -9,6 +9,13 @@ export const Content = styled.View`
   align-items: center;
 `;
 
+export const EmptyText = styled.Text`
+  align-items: center;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 20px;
+`;
+
 export const DemandsList = styled(FlatList).attrs({
   showsVerticalScrollIndicator: false,
 })``;
