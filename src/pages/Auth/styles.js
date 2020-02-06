@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import background from '../../assets/images/background.png';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/log3.gif';
 
 export const Container = styled.ImageBackground.attrs({
   source: background,
@@ -18,7 +18,10 @@ export const LogoView = styled.View`
 
 export const LogoImage = styled.Image.attrs({
   source: logo,
-})``;
+})`
+  height: 120px;
+  width: 320px;
+`;
 
 export const AuthView = styled.View`
   flex: 1;

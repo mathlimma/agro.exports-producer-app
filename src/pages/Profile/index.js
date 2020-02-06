@@ -23,7 +23,7 @@ import {
 export default function Profile({ navigation }) {
   const [producer, setProducer] = useState({});
   const [url, setUrl] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function getUser() {

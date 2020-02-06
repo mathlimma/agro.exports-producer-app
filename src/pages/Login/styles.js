@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import { Feather } from '@expo/vector-icons';
 import { KeyboardAvoidingView } from 'react-native';
 
-import logo from '../../assets/images/logo-login2.png';
+import logo from '../../assets/images/log3.gif';
 
 export const Container = styled.View`
   flex: 1;
@@ -46,7 +46,10 @@ export const LoginButtonText = styled.Text`
   font-weight: bold;
 `;
 
-export const Logo = styled.Image.attrs({ source: logo })``;
+export const Logo = styled.Image.attrs({ source: logo })`
+  height: 120px;
+  width: 320px;
+`;
 
 export const LogoView = styled.View`
   justify-content: center;
