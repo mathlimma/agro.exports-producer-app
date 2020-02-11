@@ -62,7 +62,7 @@ export default function CreateSupply({ navigation }) {
   async function handleCreateSupply() {
     try {
       const { coords } = await getLocationAsync();
-      console.log(item._id);
+
       const priceNum = Number(price);
       const newSupply = {
         product_id: item._id,

@@ -41,7 +41,10 @@ export const EcePhoto = styled.Image`
   border-color: #83ed7b99;
   margin-right: 15px;
 `;
-export const EceInfoView = styled.View``;
+export const EceInfoView = styled.View`
+  flex: 1;
+`;
+
 export const EceName = styled.Text`
   font-size: 22px;
 `;

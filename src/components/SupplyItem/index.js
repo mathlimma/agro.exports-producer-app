@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, ProductNameText, ProductImage, StatusText } from './styles';
 
 export default function SupplyItem(item) {
-  console.log(item);
   function handleEdit() {
     item.navigation.push('EditSupply', { item });
   }

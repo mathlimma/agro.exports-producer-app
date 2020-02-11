@@ -27,7 +27,6 @@ import {
 
 export default function EditSupply({ navigation }) {
   const { item } = navigation.state.params;
-  console.log(item);
   const [active, setActive] = useState(item.active);
   const [price, setPrice] = useState(String(item.price));
 

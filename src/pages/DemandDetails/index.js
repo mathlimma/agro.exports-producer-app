@@ -68,7 +68,7 @@ export default function DemandDetails({ navigation }) {
           'content-type': 'application/json',
         },
       });
-      console.log(response.data);
+
       navigation.pop();
       if (accept) sendOnWhatsApp(demand.ece_id.tel, demand.ece_id.name);
     } catch (err) {
